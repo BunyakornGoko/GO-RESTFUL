@@ -54,13 +54,13 @@ func (u *User) ValidateCredentials() error {
 	err := row.Scan(&u.ID,&retrievedPassword)
 
 	if err != nil {
-		return errors.New("Credentials invalid")
+		return errors.New("credentials invalid")
 	}
 
 	passwordIsValid := utils.CheckPasswordHash(u.Password, retrievedPassword)
 
 	if !passwordIsValid {
-		return errors.New("Credentials invalid")
+		return errors.New("credentials invalid")
 	}
 
 	return nil
