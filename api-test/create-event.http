@@ -4,7 +4,7 @@ authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QyQHRlc3Qu
 
 {
 	"name": "Test Event",
-	"description": "Description !!!",     
+	"description": "Description",     
 	"location": "Location",
 	"dateTime": "2021-01-01T00:00:00Z"
 }
