@@ -1,9 +1,9 @@
 POST http://localhost:8080/events
 content-type: application/json
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdC5jb20iLCJleHAiOjE3Mzk5NDMwMjUsInVzZXJJZCI6MX0.ZY6-0WrMzZONaW3lb7clRBxMWPhENH0RtE2xFw--NVQ
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QyQHRlc3QuY29tIiwiZXhwIjoxNzM5OTUyNjU3LCJ1c2VySWQiOjJ9.T11dddZaPbkNJbD3vo9JZg5AHqtGEIXbFDNeXufJpWU
 
 {
-	"name": "Test Event",
+	"name": "Test Event 5",
 	"description": "Description",     
 	"location": "Location",
 	"dateTime": "2021-01-01T00:00:00Z"
