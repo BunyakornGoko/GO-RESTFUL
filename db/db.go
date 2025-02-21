@@ -3,14 +3,14 @@ package db
 import (
 	"database/sql"
 
-	_ "github.com/mattn/go-sqlite3"
+	_ "github.com/go-sql-driver/mysql"
 )
 
 var DB *sql.DB
 
 func InitDB() error {
 	var err error
-	DB, err = sql.Open("sqlite3", "api.db")
+	DB, err = sql.Open("mysql", "root:!Zazaza080a@tcp(127.0.0.1:3306)/events")
 	if err != nil {
 		return err
 	}
@@ -26,9 +26,9 @@ func InitDB() error {
 func createTables() error {
 	createUsersTable := `
 	CREATE TABLE IF NOT EXISTS users (
-		id INTEGER PRIMARY KEY AUTOINCREMENT,
-		email TEXT NOT NULL UNIQUE,
-		password TEXT NOT NULL
+		id INT AUTO_INCREMENT PRIMARY KEY,
+		email VARCHAR(255) NOT NULL UNIQUE,
+		password VARCHAR(255) NOT NULL
 	)`
 	
 	_, err := DB.Exec(createUsersTable)
@@ -38,12 +38,12 @@ func createTables() error {
 
 	createEventsTable := `
 	CREATE TABLE IF NOT EXISTS events (
-		id INTEGER PRIMARY KEY AUTOINCREMENT,
-		name TEXT NOT NULL,
+		id INT AUTO_INCREMENT PRIMARY KEY,
+		name VARCHAR(255) NOT NULL,
 		description TEXT NOT NULL,
-		location TEXT NOT NULL,
+		location VARCHAR(255) NOT NULL,
 		dateTime DATETIME NOT NULL,
-		user_id INTEGER,
+		user_id INT,
 		FOREIGN KEY (user_id) REFERENCES users(id)
 	)`
 
@@ -54,9 +54,9 @@ func createTables() error {
 
 	createRegistrationsTables := `
 	CREATE TABLE IF NOT EXISTS registrations (
-		id INTEGER PRIMARY KEY AUTOINCREMENT,
-		event_id INTEGER,
-		user_id INTEGER,
+		id INT AUTO_INCREMENT PRIMARY KEY,
+		event_id INT,
+		user_id INT,
 		FOREIGN KEY(event_id) REFERENCES events(id),
 		FOREIGN KEY(user_id) REFERENCES users(id)
 	)`
