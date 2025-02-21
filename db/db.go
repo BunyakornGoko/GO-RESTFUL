@@ -2,7 +2,6 @@ package db
 
 import (
 	"database/sql"
-	"os"
 
 	_ "github.com/mattn/go-sqlite3"
 )
@@ -11,11 +10,7 @@ var DB *sql.DB
 
 func InitDB() error {
 	var err error
-	dbFile := os.Getenv("DB_CONNECTION_STRING")
-	if dbFile == "" {
-		dbFile = "api.db"
-	}
-	DB, err = sql.Open("sqlite3", dbFile)
+	DB, err = sql.Open("sqlite3", "api.db")
 	if err != nil {
 		return err
 	}
