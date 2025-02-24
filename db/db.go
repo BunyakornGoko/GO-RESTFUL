@@ -66,5 +66,23 @@ func createTables() error {
 		return err
 	}
 
+	createStudentTable := `
+	CREATE TABLE IF NOT EXISTS students (
+		id INT AUTO_INCREMENT PRIMARY KEY,
+		name VARCHAR(100) NOT NULL,
+		university VARCHAR(100) NOT NULL,
+		department VARCHAR(100) NOT NULL,
+		age INT NOT NULL,
+		street VARCHAR(255),
+		city VARCHAR(100),
+		state VARCHAR(50),
+		zip VARCHAR(20)
+	)`
+
+	_, err = DB.Exec(createStudentTable)
+	if err != nil {
+		return err
+	}
+
 	return nil
 }

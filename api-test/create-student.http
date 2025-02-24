@@ -1,0 +1,15 @@
+POST http://localhost:8080/students
+content-type: application/json
+
+{
+    "name": "BobLee Johnson",
+    "university": "MIT",
+    "department": "Mechanical Engineering",
+    "age": 26,
+    "address": {
+        "street": "789 Oak St",
+        "city": "Cambridge",
+        "state": "MA",
+        "zip": "02139"
+    }
+} 
